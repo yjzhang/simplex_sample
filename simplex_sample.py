@@ -30,5 +30,5 @@ def data_sample(w, s_sample):
     index.addDataPointBatch(w.T)
     index.createIndex()
     neighbors = index.knnQueryBatch(s_sample, k=1, num_threads=4)
-    indices = [neighbors[0][0] for n in neighbors]
+    indices = [n[0][0] for n in neighbors]
     return np.array(indices)
