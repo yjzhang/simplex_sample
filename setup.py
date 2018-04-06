@@ -11,7 +11,6 @@ install_requires = [
         'numpy'
         ]
 
-
 setup(
     name='simplex-sampling',
     version='0.0.1',
@@ -21,7 +20,8 @@ setup(
     license='MIT',
     install_requires=install_requires,
 #    ext_modules = cythonize(extensions),
-    packages=find_packages("."),
+    #packages=['simplex_sample.py'],
+    py_modules=['simplex_sample'],
     test_suite='nose.collector',
     tests_require=['nose'],
 )
