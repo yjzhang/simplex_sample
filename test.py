@@ -23,3 +23,10 @@ class SimplexSampleTest(TestCase):
         indices = simplex_sample.data_sample(points.T, points)
         for i, index in enumerate(indices):
             self.assertEqual(i, index)
+
+    def testSamplingWithoutReplacement(self):
+        points = simplex_sample.sample(8, 1000)
+        sample_points = simplex_sample.sample(8, 500)
+        indices = simplex_sample.data_sample(points.T, sample_points,
+                replace=False)
+        self.assertEqual(len(indices), len(set(indices)))
